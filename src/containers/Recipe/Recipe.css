@@ -1,0 +1,30 @@
+.RecipePage{
+    position: relative;
+}
+
+.RecipeIngredients{
+    margin-top: 3%;
+}
+.RecipeIngredient{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.RecipeSteps{
+    margin-top: 3%;
+    align-content: center;
+}
+.RecipeStep{
+    width: 100%;
+    border-radius: 20px;
+    margin: 0%;
+}
+.RecipeEquipments{
+    margin-top: 3%;
+}
+.RecipeEquipment{
+    border-radius: 10px;
+}
+
+
+

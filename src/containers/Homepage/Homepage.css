@@ -1,0 +1,23 @@
+.Element {
+    background: linear-gradient(
+      to bottom,
+    black 20%,
+      transparent
+    );
+    height: 100px;
+  }
+
+.Title{
+    padding-top : 50px;
+    color: white;
+    text-align: center;
+    font-family: 'Alegreya', serif;
+    font-weight: 450;
+    font-size: 2.2cm;
+    /* text-shadow: 20px 0px 40px rgb(228, 118, 27); */
+    text-shadow: 20px 0px 40px black;
+}
+
+
+
+/* add media query for smaller screens */

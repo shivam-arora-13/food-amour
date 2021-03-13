@@ -1,0 +1,18 @@
+.NavBarSearchBar{
+    align-items: center;
+    display: inline-block;
+    width: 90%;
+    padding: 0 10% 0;
+    margin-top: 15px;
+}
+
+.NavBarSearchButton{
+    display: inline-block;
+    top : -8px;
+    z-index: -100;
+}
+
+.NavBarImg{
+    height: 60px;
+    border-radius: 30px;
+}
