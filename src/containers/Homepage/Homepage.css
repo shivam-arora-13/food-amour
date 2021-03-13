@@ -18,6 +18,26 @@
     text-shadow: 20px 0px 40px black;
 }
 
+.HomePage{
+  background-size : cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@media(max-width : 500px){
+  .HomePage{
+    background-size :contain;
+
+    background-size: 550px 750px;
+  }
+  .Title{
+    text-shadow: 20px 0px 50px black;
+  }
+}
+
 
 
 /* add media query for smaller screens */

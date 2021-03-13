@@ -14,11 +14,7 @@ class Homepage extends Component{
         let homepage = <div style={{
             zIndex : "2",
             backgroundImage : `url(${homepageBG})`,
-                position: "absolute",
-                top: "0",
-                right: "0",
-                bottom: "0",
-                left: "0",}}>
+               }} className="HomePage" >
                     
                     <div className="Element">
                         <h1 className="Title">Food Amour</h1>

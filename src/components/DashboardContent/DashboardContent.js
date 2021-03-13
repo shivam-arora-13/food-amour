@@ -9,6 +9,7 @@ import {connect} from "react-redux";
 import NavBar from "../NavBar/NavBar";
 import * as actions from "../../store/actions/recipeActions";
 import Homepage from "../../containers/Homepage/Homepage";
+import Spinner from "../../UI/Spinner/Spinner";
 
 const Content = (props) => {
   const loadRecipesHandler = (query)=>{
@@ -30,10 +31,12 @@ const Content = (props) => {
       <Route path = "/recipe" exact component={Recipe}/>
       <Route path = "/dashboard" render = {()=>{return <RecipeCards recipes = {props.loadedRecipes} saved = {false}/> }} />
       <Route path = "/savedRecipes" render = {()=>{
-        let savedRecipesCards = null;
+        console.log("hey")
+        let savedRecipesCards = <Spinner/>;
         if(props.savedRecipes){
-          
-          savedRecipesCards = <RecipeCards recipes = {props.savedRecipes} saved = {true} />
+          console.log(props.savedRecipes)
+          savedRecipesCards =<> <RecipeCards recipes = {props.savedRecipes} saved = {true} /></>
+          console.log("ahaha")
         }
         return <> {savedRecipesCards} </>}} />
         

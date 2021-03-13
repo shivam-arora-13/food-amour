@@ -5,6 +5,7 @@ import RecipeSteps from "../../components/RecipeComponents/RecipeSteps/RecipeSte
 import RecipeEquipments from "../../components/RecipeComponents/RecipeEquipments/RecipeEquipments";
 import {connect} from  "react-redux";
 import "./Recipe.css";
+import Spinner  from "../../UI/Spinner/Spinner";
 
 class Recipe extends Component{
     
@@ -12,7 +13,7 @@ class Recipe extends Component{
         console.log("hello")
         
 
-        let recipe = null;
+        let recipe = <Spinner/>;
         if(this.props.recipeId) {
             console.log(this.props)
             let Ingredients = [];

@@ -16,7 +16,9 @@ const RecipeCards = (props)=>{
         }, 3000)
     }
 
-    return<><Container><Row lg="4" md="3" sm="2" xs="1">
+    return<><Container style={{
+        paddingRight : "3%"
+    }}><Row lg="4" md="3" sm="2" xs="1">
             {props.recipes.map((recipe, index)=>{
         return<Col key = {recipe.id} ><RecipeCard title = {recipe.title} imageUrl = {recipe.image} id = {recipe.id} saved = {props.saved} knowClicked={()=>{
             props.loadAnalyzedRecipe(recipe);

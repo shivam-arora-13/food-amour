@@ -10,7 +10,9 @@ const SearchBar = (props)=>{
     <Input autoComplete = "off" placeholder="Search Recipe" name="Search Recipe" value={searchQuery} onChange={(event)=>{setSearchQuery(event.target.value)}}/>
     <InputGroupAddon addonType="append">
     <NavLink tag={Link} to={"/dashboard"}>
-      <Button className = "NavBarSearchButton" color="danger" onClick={()=>props.onSearchClick(searchQuery)}><BsSearch/></Button>
+      <Button className = "NavBarSearchButton" color="danger" onClick={()=>{
+        setSearchQuery("")
+        props.onSearchClick(searchQuery)}}><BsSearch/></Button>
            
             </NavLink>
     </InputGroupAddon>
