@@ -11,10 +11,11 @@ import { Link } from "react-router-dom";
 import {connect} from "react-redux"
 import * as saveRecipeActions from "../../store/actions/saveRecipeActions";
 import * as userActions from "../../store/actions/UserActions";
+import * as actionTypes from "../../store/actions/actionTypes";
 
 // import SubMenu from "./SubMenu";
 
-const SideBar = ({ isOpen, toggle, loadSavedRecipes, userId, logout }) => (
+const SideBar = ({ isOpen, toggle, loadSavedRecipes, userId, logout, clearSavedRecipes, clearLoadedRecipes }) => (
   <div  className={classNames("sidebar", { "is-open": isOpen })}>
     <div className="sidebar-header">
       <span color="info" onClick={toggle} style={{ color: "#fff" }}>
@@ -37,7 +38,9 @@ const SideBar = ({ isOpen, toggle, loadSavedRecipes, userId, logout }) => (
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink tag={Link} to={"/"} onClick = {()=>logout()}>
+          <NavLink tag={Link} to={"/"} onClick = {()=>{logout();
+          clearLoadedRecipes(); clearSavedRecipes();
+          }}>
             
             <FontAwesomeIcon icon={faSignOutAlt} className="mr-2" />
             Logout
@@ -58,7 +61,9 @@ const mapStateToProps = (state)=>{
 const mapDispatchToProps = (dispatch)=>{
   return{
     loadSavedRecipes : (userId)=>dispatch(saveRecipeActions.loadSavedRecipes(userId)),
-    logout : ()=>dispatch(userActions.logout())
+    logout : ()=>dispatch(userActions.logout()),
+    clearLoadedRecipes : ()=>dispatch({type : actionTypes.CLEAR_LOADED_RECIPES}),
+    clearSavedRecipes : ()=>dispatch({type : actionTypes.CLEAR_SAVED_RECIPES})
   }
 }
 

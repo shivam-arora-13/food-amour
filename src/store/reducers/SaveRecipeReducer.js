@@ -37,6 +37,12 @@ const SaveRecipeReducer = (state = initialState ,action) =>{
                 ...state,
                 showAlert : false,
             }
+        case actionTypes.CLEAR_SAVED_RECIPES :
+            return{
+                savedRecipes : null,
+    showAlert : false,
+    alertType : "added"
+            }
         default : return state;
     }
 }

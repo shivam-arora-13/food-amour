@@ -10,8 +10,10 @@ export const RECIPE_SAVED = "RECIPE_SAVED" ;
 export const RECIPE_REMOVED = "RECIPE_REMOVED";
 export const RECIPE_EXISTS = "RECIPE_EXISTS" ;
 export const HIDE_ALERT = "HIDE_ALERT" ;
+export const CLEAR_SAVED_RECIPES = "CLEAR_SAVED_RECIPES";
 
 
 //recipe actions
 export const LOAD_RECIPES = "LOAD_RECIPES";
 export const LOAD_ANALYZED_RECIPE = "LOAD_ANALYZED_RECIPE" ;
+export const CLEAR_LOADED_RECIPES = "CLEAR_LOADED_RECIPES";

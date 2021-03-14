@@ -23,6 +23,14 @@ const RecipeReducer = (state = intialState, action)=>{
                 recipeImg : action.recipeInfo.image,
                 analyzedRecipe : action.analyzedRecipe
             }
+        case actionTypes.CLEAR_LOADED_RECIPES : 
+        return {
+            recipeId : null,
+    recipeTitle : null,
+    recipeImg : null,
+    analizedRecipe : null,
+    recipes : null
+        }
         default :
         return state;
     }
