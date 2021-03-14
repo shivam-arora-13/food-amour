@@ -8,7 +8,7 @@ const RecipeEquipments = (props)=>{
             <Row lg="4" md= "3" sm = "2" xs="1">
         {props.equipments.map((equipment, index)=>{
             return<Col  key = {index + equipment}><Card body className="text-center" className="RecipeEquipment">
-            <CardTitle tag="h5">{equipment}</CardTitle>
+            <CardTitle tag="h5">{equipment.charAt(0).toUpperCase() + equipment.slice(1)}</CardTitle>
           </Card></Col>
         })}
         </Row>

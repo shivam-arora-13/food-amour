@@ -12,7 +12,7 @@ const SearchBar = (props)=>{
     <NavLink tag={Link} to={"/dashboard"}>
       <Button className = "NavBarSearchButton" color="danger" onClick={()=>{
         setSearchQuery("")
-        props.onSearchClick(searchQuery)}}><BsSearch/></Button>
+        props.onSearchClick(searchQuery)}} ><BsSearch/></Button>
            
             </NavLink>
     </InputGroupAddon>

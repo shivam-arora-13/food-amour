@@ -12,11 +12,13 @@ import Homepage from "../../containers/Homepage/Homepage";
 import Spinner from "../../UI/Spinner/Spinner";
 
 const Content = (props) => {
+  if(!props.userId){return <Redirect to="/"/>}
   const loadRecipesHandler = (query)=>{
     props.loadRecipes(query);
     props.history.push("/dashboard");
 
   }
+  if(!props.userId){return <Redirect to="/"/>}
 
 
   return<><Container
@@ -29,14 +31,27 @@ const Content = (props) => {
         return <Homepage/>
       }} />
       <Route path = "/recipe" exact component={Recipe}/>
-      <Route path = "/dashboard" render = {()=>{return <RecipeCards recipes = {props.loadedRecipes} saved = {false}/> }} />
+      <Route path = "/dashboard" render = {()=>{
+         let loadedRecipesCards = null;
+         if(props.loadedRecipes){
+          if(props.loadedRecipes.length == 0)return <h2>NO RECIPES TO SHOW :(</h2>
+          loadedRecipesCards = <RecipeCards recipes = {props.loadedRecipes} saved = {false}/>
+         }
+        
+        return <> {loadedRecipesCards} </> }} />
       <Route path = "/savedRecipes" render = {()=>{
+            if(!props.userId){return <Redirect to="/dashboard"/>}
         console.log("hey")
         let savedRecipesCards = <Spinner/>;
         if(props.savedRecipes){
           console.log(props.savedRecipes)
-          savedRecipesCards =<> <RecipeCards recipes = {props.savedRecipes} saved = {true} /></>
-          console.log("ahaha")
+          
+          savedRecipesCards =<> 
+          {props.savedRecipes.length == 0 && <h2>NO SAVED RECIPES :(</h2> }
+          <RecipeCards recipes = {props.savedRecipes} saved = {true} />
+          </>
+          console.log(props.userId)
+          
         }
         return <> {savedRecipesCards} </>}} />
         

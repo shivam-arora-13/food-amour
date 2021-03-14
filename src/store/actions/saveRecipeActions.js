@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const loadSavedRecipes = (userId)=>{
     return (dispatch)=>{
-        const requestURl = 'https://food-amour-1378-default-rtdb.firebaseio.com/savedRecipes.json?orderBy="userId"&equalTo='+userId;
+        const requestURl = 'https://food-amour-1378-default-rtdb.firebaseio.com/savedRecipes.json?orderBy="userId"&equalTo="'+userId+'"';
         axios.get(requestURl)
         .then((res)=>{
             console.log(userId)
@@ -29,7 +29,8 @@ export const loadSavedRecipes = (userId)=>{
 
 export const saveRecipeInit = (userId, recipe)=>{
     return (dispatch)=>{
-        const verifyURL = 'https://food-amour-1378-default-rtdb.firebaseio.com/savedRecipes.json?orderBy="userId"&equalTo='+userId;
+
+        const verifyURL = 'https://food-amour-1378-default-rtdb.firebaseio.com/savedRecipes.json?orderBy="userId"&equalTo="'+userId+'"';
         let flag = true;
         axios.get(verifyURL)
         .then((res)=>{
@@ -67,7 +68,7 @@ export const removeSavedRecipe = (userId, recipe)=>{
         const requestURL = 'https://food-amour-1378-default-rtdb.firebaseio.com/savedRecipes/' + recipe.objectKey + '.json';
         axios.delete(requestURL)
         .then((res)=>{console.log(res)
-            const requestURl = 'https://food-amour-1378-default-rtdb.firebaseio.com/savedRecipes.json?orderBy="userId"&equalTo='+userId;
+            const requestURl = 'https://food-amour-1378-default-rtdb.firebaseio.com/savedRecipes.json?orderBy="userId"&equalTo="'+userId+'"';
         axios.get(requestURl)
         .then((res)=>{
             let savedRecipes = [];

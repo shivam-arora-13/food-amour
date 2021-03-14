@@ -29,7 +29,7 @@ export const onGoogleSignIn = ()=>{
     var credential = result.credential;
     const user = {
       name : result.additionalUserInfo.profile.name,
-      id : +result.additionalUserInfo.profile.id,
+      id : result.additionalUserInfo.profile.id,
       token : credential.accessToken,
       image : result.additionalUserInfo.profile.picture
     }
@@ -64,7 +64,7 @@ export const onTwitterSignIn = ()=>{
     console.log(result);
     const user = {
       name : result.additionalUserInfo.profile.name,
-      id : result.additionalUserInfo.profile.id,
+      id : result.additionalUserInfo.profile.id.toString(),
       token : credential.accessToken,
       image : result.additionalUserInfo.profile.profile_image_url
     }

@@ -6,13 +6,13 @@ import RecipeEquipments from "../../components/RecipeComponents/RecipeEquipments
 import {connect} from  "react-redux";
 import "./Recipe.css";
 import Spinner  from "../../UI/Spinner/Spinner";
+import {Redirect} from "react-router-dom";
 
 class Recipe extends Component{
     
     render(){
         console.log("hello")
-        
-
+        if(!this.props.userId){return <Redirect to="/"/>}
         let recipe = <Spinner/>;
         if(this.props.recipeId) {
             console.log(this.props)
@@ -54,7 +54,8 @@ const mapStateToProps = (state)=>{
         recipeId : state.recipe.recipeId, 
     recipeTitle : state.recipe.recipeTitle,
     recipeImg : state.recipe.recipeImg,
-    analyzedRecipe : state.recipe.analyzedRecipe
+    analyzedRecipe : state.recipe.analyzedRecipe,
+    userId : state.user.id
     }
 }
 

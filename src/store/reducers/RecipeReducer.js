@@ -5,7 +5,7 @@ const intialState = {
     recipeTitle : null,
     recipeImg : null,
     analizedRecipe : null,
-    recipes : []
+    recipes : null
 }
 
 const RecipeReducer = (state = intialState, action)=>{

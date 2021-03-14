@@ -5,8 +5,10 @@ import {connect} from "react-redux";
 import * as actions from "../../store/actions/recipeActions";
 import * as saveRecipeActions from "../../store/actions/saveRecipeActions";
 import ClickAlert from "../../UI/ClickAlert/ClickAlert";
+import { Redirect } from "react-router";
 
 const RecipeCards = (props)=>{
+    if(!props.userId){return <Redirect to="/"/>}
 
     let recipeAlert = null;
     if(props.showAlert){
@@ -23,6 +25,7 @@ const RecipeCards = (props)=>{
         return<Col key = {recipe.id} ><RecipeCard title = {recipe.title} imageUrl = {recipe.image} id = {recipe.id} saved = {props.saved} knowClicked={()=>{
             props.loadAnalyzedRecipe(recipe);
         }} saveRecipe = {()=>{
+            console.log("this mofo is : " + props.userId);
             props.saveRecipe(props.userId, recipe);
         }}
         deleteRecipe = {()=>{
