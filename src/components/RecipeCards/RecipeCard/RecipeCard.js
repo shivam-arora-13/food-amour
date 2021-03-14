@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import {
-    Card, CardText, CardBody,
-    CardTitle, CardSubtitle,
+    Card, CardBody,
+    CardTitle,
     Button
   } from 'reactstrap';
 import "./RecipeCard.css";
@@ -21,7 +21,6 @@ const RecipeCard = (props)=>{
     </CardBody>
     <img width="100%" src={props.imageUrl} alt="Card image cap" />
     <CardBody>
-      {/* <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText> */}
       <center><NavLink to={"/recipe"}><Button className= "RCardButton" outline color="warning" onClick = {props.knowClicked} >Know Recipe</Button></NavLink><p></p>
       {!props.saved ? <Button outline color="success" className= "RCardButton" onClick = {props.saveRecipe} >Add To Saved</Button> :
       <NavLink to={"/savedRecipes"}><Button outline color="danger" className= "RCardButton" onClick = {props.deleteRecipe} >Remove From Saved</Button></NavLink>}</center>

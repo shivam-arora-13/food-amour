@@ -6,23 +6,16 @@ export const loadSavedRecipes = (userId)=>{
         const requestURl = 'https://food-amour-1378-default-rtdb.firebaseio.com/savedRecipes.json?orderBy="userId"&equalTo="'+userId+'"';
         axios.get(requestURl)
         .then((res)=>{
-            console.log(userId)
-            console.log("hello")
-            console.log(res.data)
             let savedRecipes = [];
             for(let key in res.data){
-                console.log(res.data[key])
-                console.log(key)
                 savedRecipes.push({...res.data[key], objectKey : key})
             }
-            console.log(savedRecipes)
             dispatch({
                 type : actionTypes.LOAD_SAVED_RECIPES,
                 savedRecipes : savedRecipes
             })
         })
         .catch((err)=>{
-            console.log(err)
         });
     }
 }
@@ -49,7 +42,6 @@ export const saveRecipeInit = (userId, recipe)=>{
             };
             axios.post(requestURL, saveRecipeObject)
             .then((res)=>{
-                console.log(res)
                 dispatch({type : actionTypes.RECIPE_SAVED})
             })
             .catch((err)=>{
@@ -64,20 +56,17 @@ export const saveRecipeInit = (userId, recipe)=>{
 
 export const removeSavedRecipe = (userId, recipe)=>{
     return (dispatch)=>{
-        console.log(recipe.objectKey)
         const requestURL = 'https://food-amour-1378-default-rtdb.firebaseio.com/savedRecipes/' + recipe.objectKey + '.json';
         axios.delete(requestURL)
-        .then((res)=>{console.log(res)
+        .then((res)=>{
             const requestURl = 'https://food-amour-1378-default-rtdb.firebaseio.com/savedRecipes.json?orderBy="userId"&equalTo="'+userId+'"';
         axios.get(requestURl)
         .then((res)=>{
             let savedRecipes = [];
             for(let key in res.data){
-                console.log(res.data[key])
-                console.log(key)
+               
                 savedRecipes.push({...res.data[key], objectKey : key})
             }
-            console.log(savedRecipes)
             dispatch({type : actionTypes.RECIPE_REMOVED, savedRecipes : savedRecipes})
         })
 

@@ -12,7 +12,6 @@ const Dashboard = (props) => {
   
   const [sidebarIsOpen, setSidebarOpen] = useState(true);
   const toggleSidebar = () => setSidebarOpen(!sidebarIsOpen);
-  console.log(props)
   if(!props.userId){return <Redirect to="/"/>}
   return (
     <Router>

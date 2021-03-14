@@ -25,7 +25,6 @@ const RecipeCards = (props)=>{
         return<Col key = {recipe.id} ><RecipeCard title = {recipe.title} imageUrl = {recipe.image} id = {recipe.id} saved = {props.saved} knowClicked={()=>{
             props.loadAnalyzedRecipe(recipe);
         }} saveRecipe = {()=>{
-            console.log("this mofo is : " + props.userId);
             props.saveRecipe(props.userId, recipe);
         }}
         deleteRecipe = {()=>{

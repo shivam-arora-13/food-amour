@@ -9,7 +9,6 @@ const SaveRecipeReducer = (state = initialState ,action) =>{
     
     switch(action.type){
         case actionTypes.LOAD_SAVED_RECIPES :
-            console.log("how u doin")
             return{
                 ...state, 
                 savedRecipes : action.savedRecipes

@@ -2,8 +2,7 @@ import React from "react";
 import {Container, Row, Col, Card,CardTitle } from 'reactstrap';
 
 const RecipeEquipments = (props)=>{
-    console.log(props.equipments)
-    return <div className="RecipeEquipments"><center><h3>Equipments</h3></center>
+    return <> { props.equipments.length > 0 && <div className="RecipeEquipments"><center><h3>Equipments</h3></center>
         <Container>
             <Row lg="4" md= "3" sm = "2" xs="1">
         {props.equipments.map((equipment, index)=>{
@@ -13,7 +12,7 @@ const RecipeEquipments = (props)=>{
         })}
         </Row>
         </Container>
-    </div>
+    </div>}</>
 }
 
 export default RecipeEquipments;

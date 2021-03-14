@@ -14,7 +14,6 @@ export const verifyLoggedIn = ()=>{
       token : localStorage.getItem("token"),
       image : localStorage.getItem("image")
     }
-    console.log(user)
     dispatch({type : actionTypes.LOGIN_SUCCESS, user : user})
   }}
 }
@@ -25,7 +24,6 @@ export const onGoogleSignIn = ()=>{
   .signInWithPopup(googleProvider)
   .then((result) => {
     /** @type {firebase.auth.OAuthCredential} */
-    console.log(result)
     var credential = result.credential;
     const user = {
       name : result.additionalUserInfo.profile.name,
@@ -61,7 +59,6 @@ export const onTwitterSignIn = ()=>{
     /** @type {firebase.auth.OAuthCredential} */
     var credential = result.credential;
     var credential = result.credential;
-    console.log(result);
     const user = {
       name : result.additionalUserInfo.profile.name,
       id : result.additionalUserInfo.profile.id.toString(),
@@ -89,7 +86,6 @@ export const onTwitterSignIn = ()=>{
 
 export const logout = () =>{
   return (dispatch)=>{
-    console.log("logout baby");
     localStorage.removeItem("name");
     localStorage.removeItem("id");
     localStorage.removeItem("token");

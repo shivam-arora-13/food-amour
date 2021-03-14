@@ -25,7 +25,6 @@ class Homepage extends Component{
                 onTwitterSignIn = {this.props.onTwitterSignIn}/></div>
         </div>
         if(this.props.userId){
-            console.log("hello");
             homepage = <Redirect to="/dashboard"/>
         }
         return   <>{homepage}</>

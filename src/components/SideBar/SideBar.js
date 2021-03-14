@@ -2,12 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
-  faBriefcase,
-  faPaperPlane,
-  faQuestion,
-  faImage,
   faBookmark,
-  faCopy,
   faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavItem, NavLink, Nav } from "reactstrap";
@@ -29,7 +24,6 @@ const SideBar = ({ isOpen, toggle, loadSavedRecipes, userId, logout }) => (
     </div>
     <div className="side-menu">
       <Nav vertical className="list-unstyled pb-3">
-        {/* <SubMenu title="Home" icon={faHome} items={submenus[0]} /> */}
         <NavItem>
           <NavLink tag={Link} to={"/dashboard"}>
             <FontAwesomeIcon icon={faHome} className="mr-2" />

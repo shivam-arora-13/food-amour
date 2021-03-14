@@ -1,4 +1,4 @@
-import React,{useEffect, useState}from "react";
+import React from "react";
 import classNames from "classnames";
 import { Container } from "reactstrap";
 import { Switch, Route, Redirect } from "react-router-dom";
@@ -41,16 +41,14 @@ const Content = (props) => {
         return <> {loadedRecipesCards} </> }} />
       <Route path = "/savedRecipes" render = {()=>{
             if(!props.userId){return <Redirect to="/dashboard"/>}
-        console.log("hey")
+
         let savedRecipesCards = <Spinner/>;
         if(props.savedRecipes){
-          console.log(props.savedRecipes)
           
           savedRecipesCards =<> 
           {props.savedRecipes.length == 0 && <h2>NO SAVED RECIPES :(</h2> }
           <RecipeCards recipes = {props.savedRecipes} saved = {true} />
           </>
-          console.log(props.userId)
           
         }
         return <> {savedRecipesCards} </>}} />

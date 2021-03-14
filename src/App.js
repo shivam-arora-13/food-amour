@@ -7,13 +7,11 @@ import {connect} from "react-redux";
 class App extends Component{
 
     render(){
-        console.log(this.props.user)
             const routes =<Switch>
                 <Route path = "/" exact component={Homepage}/>
             <Route path = "/dashboard" exact component={Dashboard}/>
             <Redirect to = "/dashboard"/>
             </Switch>
-            console.log("heyy baby")
         return<div>
             {routes}
         </div>  

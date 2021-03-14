@@ -2,8 +2,7 @@ import React from "react";
 import { Toast, ToastBody, ToastHeader } from 'reactstrap';
 
 const RecipeSteps = (props)=>{
-    console.log(props.steps)
-    return<div className = "RecipeSteps" style={{
+    return <> { props.steps.length > 0 && <div className = "RecipeSteps" style={{
     }}><center><h3>Steps</h3></center>
             {props.steps.map((step, index)=>{
                 return   <Toast key={step+index} className = "RecipeStep">
@@ -15,9 +14,8 @@ const RecipeSteps = (props)=>{
                 </ToastBody>
               </Toast>
             })} 
-    </div>
+    </div>}</>
     //use toast with red badge
 
 }
-console.log("i knowwwww")
 export default RecipeSteps;

@@ -11,11 +11,9 @@ import {Redirect} from "react-router-dom";
 class Recipe extends Component{
     
     render(){
-        console.log("hello")
         if(!this.props.userId){return <Redirect to="/"/>}
         let recipe = <Spinner/>;
         if(this.props.recipeId) {
-            console.log(this.props)
             let Ingredients = [];
         for(let i = 0 ; i< this.props.analyzedRecipe["steps"].length ; i++){
             for(let j = 0; j<this.props.analyzedRecipe["steps"][i]["ingredients"].length; j++){
